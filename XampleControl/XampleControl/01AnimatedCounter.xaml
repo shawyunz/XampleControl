@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._01AnimatedCounter"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Animated Counter">
+    <ContentPage.Content>
+        <StackLayout Margin="20,0" Spacing="4">
+            <Grid
+                Padding="48"
+                HeightRequest="400"
+                RowSpacing="0">
+                <Label
+                    x:Name="Label1"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{Binding CurrentCount}"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="Label2"
+                    Margin="0,30,0,0"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    HorizontalOptions="CenterAndExpand"
+                    Opacity="0"
+                    Text="{Binding NextCount}"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Current animation duration: " VerticalOptions="End" />
+                <Entry
+                    Margin="0,0,0,-10"
+                    FontSize="14"
+                    Text="{Binding Path=Value, Source={x:Reference Sliderx}, Mode=TwoWay}"
+                    WidthRequest="48" />
+                <Label Text="ms" VerticalOptions="End" />
+            </StackLayout>
+            <!--<Label x:Name="Labelx" />-->
+            <Slider
+                x:Name="Sliderx"
+                Margin="0,8"
+                Maximum="1000"
+                MaximumTrackColor="Red"
+                MinimumTrackColor="Green"
+                Value="{Binding AnimationLength, Mode=TwoWay}" />
+            <ScrollView>
+                <StackLayout Spacing="0">
+                    <Button Clicked="Button_Clicked3" Text="Animated Add" />
+                    <Button Clicked="Button_Clicked4" Text="Normal Add" />
+                    <Button Clicked="Button_Clicked5" Text="Reset" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
