@@ -1,12 +1,22 @@
 # XampleControl
 
-A collection of Xamarin customized widgets.
+A collection of Xamarin customized widgets (hopefully, without Nuget pkgs).
 
 
 
 ## 01 Animated Counter
 
+Kind of a wheel effect animation for counting.
 
 
-According to the license, the font files are not uploaded on Git.
+
+## 02 On-Screen keyboard
+
+On-Screen keys and fake entries.
+
+
+
+
+
+
 
