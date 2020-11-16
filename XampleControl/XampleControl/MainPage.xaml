@@ -15,7 +15,8 @@
                 Text="Welcome to Xample.Control!"
                 TextColor="White" />
         </Frame>
-        <Button Clicked="Button_Clicked" Text="01 AnimatedCounter" />
+        <Button Clicked="Button_Clicked01" Text="01 AnimatedCounter" />
+        <Button Clicked="Button_Clicked02" Text="02 FloatingActionButton" />
     </StackLayout>
 
 </ContentPage>

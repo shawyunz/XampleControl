@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._02FloatingActionButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Floating Action Button">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ResetButtons" />
+        </Grid.GestureRecognizers>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="24" />
+                    <Setter Property="BackgroundColor" Value="#2196F3" />
+                    <Setter Property="CornerRadius" Value="40" />
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="HeightRequest" Value="60" />
+                    <Setter Property="HorizontalOptions" Value="End" />
+                    <Setter Property="Opacity" Value="0" />
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="VerticalOptions" Value="End" />
+                    <Setter Property="WidthRequest" Value="60" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Label
+            Margin="24"
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="Check button at the bottom" />
+        <Button
+            x:Name="BtnA"
+            Clicked="Button_Clicked_A"
+            Text="A" />
+        <Button
+            x:Name="BtnB"
+            Clicked="Button_Clicked_B"
+            Text="B" />
+        <Button
+            x:Name="BtnPlus"
+            Clicked="Button_Clicked_Plus"
+            FontSize="30"
+            InputTransparent="False"
+            Opacity="1"
+            Text="+" />
+    </Grid>
+</ContentPage>

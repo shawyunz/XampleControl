@@ -10,9 +10,14 @@ namespace XampleControl
 			InitializeComponent();
 		}
 
-		private async void Button_Clicked(object sender, EventArgs e)
+		private async void Button_Clicked01(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new _01AnimatedCounter());
+		}
+
+		private async void Button_Clicked02(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _02FloatingActionButton());
 		}
 	}
 }
