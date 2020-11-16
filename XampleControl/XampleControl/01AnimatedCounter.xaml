@@ -43,9 +43,10 @@
                 Maximum="1000"
                 MaximumTrackColor="Red"
                 MinimumTrackColor="Green"
+                ThumbColor="Green"
                 Value="{Binding AnimationLength, Mode=TwoWay}" />
             <ScrollView>
-                <StackLayout Spacing="0">
+                <StackLayout Margin="0,8" Spacing="0">
                     <Button Clicked="Button_Clicked3" Text="Animated Add" />
                     <Button Clicked="Button_Clicked4" Text="Normal Add" />
                     <Button Clicked="Button_Clicked5" Text="Reset" />
