@@ -28,12 +28,13 @@
                     VerticalOptions="CenterAndExpand" />
             </Grid>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Current animation duration: " VerticalOptions="End" />
+                <Label Text="Animation duration: " VerticalOptions="End" />
                 <Entry
                     Margin="0,0,0,-10"
                     FontSize="14"
+                    HorizontalTextAlignment="Center"
                     Text="{Binding Path=Value, Source={x:Reference Sliderx}, Mode=TwoWay}"
-                    WidthRequest="48" />
+                    WidthRequest="68" />
                 <Label Text="ms" VerticalOptions="End" />
             </StackLayout>
             <!--<Label x:Name="Labelx" />-->
@@ -47,8 +48,8 @@
                 Value="{Binding AnimationLength, Mode=TwoWay}" />
             <ScrollView>
                 <StackLayout Margin="0,8" Spacing="0">
-                    <Button Clicked="Button_Clicked3" Text="Animated Add" />
-                    <Button Clicked="Button_Clicked4" Text="Normal Add" />
+                    <Button Clicked="Button_Clicked4" Text="+1" />
+                    <Button Clicked="Button_Clicked3" Text="Animated +1" />
                     <Button Clicked="Button_Clicked5" Text="Reset" />
                 </StackLayout>
             </ScrollView>
