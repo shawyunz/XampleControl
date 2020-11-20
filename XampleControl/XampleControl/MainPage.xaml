@@ -17,6 +17,7 @@
         </Frame>
         <Button Clicked="Button_Clicked01" Text="01 AnimatedCounter" />
         <Button Clicked="Button_Clicked02" Text="02 FloatingActionButton" />
+        <Button Clicked="Button_Clicked03" Text="03 Fake Tabs" />
     </StackLayout>
 
 </ContentPage>

@@ -19,5 +19,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _02FloatingActionButton());
 		}
+
+		private async void Button_Clicked03(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _03FakeTabs());
+		}
 	}
 }

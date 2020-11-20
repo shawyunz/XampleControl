@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._03FakeTabs"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Fake Tabs">
+    <ContentPage.Content>
+        <StackLayout Margin="40" Spacing="0">
+
+            <Label
+                Margin="24,0,24,48"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="FakeTabs = Label + Boxview" />
+
+            <StackLayout
+                Padding="12,0,16,0"
+                BackgroundColor="#050505"
+                HeightRequest="40"
+                Orientation="Horizontal">
+                <StackLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="15" />
+                            <Setter Property="HorizontalOptions" Value="Center" />
+                            <Setter Property="HorizontalTextAlignment" Value="Center" />
+                            <Setter Property="Padding" Value="4,10" />
+                            <Setter Property="VerticalOptions" Value="Center" />
+                            <Setter Property="WidthRequest" Value="84" />
+                        </Style>
+                    </ResourceDictionary>
+                </StackLayout.Resources>
+                <Label
+                    x:Name="LabelView1"
+                    Text="Tab1"
+                    TextColor="LightGray">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Source={x:Reference View1}, Path=IsVisible}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="DodgerBlue" />
+                            <Setter Property="FontAttributes" Value="Bold" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapToView1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    x:Name="LabelView2"
+                    Text="Tab2"
+                    TextColor="LightGray">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Source={x:Reference View2}, Path=IsVisible}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="DodgerBlue" />
+                            <Setter Property="FontAttributes" Value="Bold" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapToView2" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    x:Name="LabelView3"
+                    Text="Tab3"
+                    TextColor="LightGray">
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Source={x:Reference View3}, Path=IsVisible}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="DodgerBlue" />
+                            <Setter Property="FontAttributes" Value="Bold" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapToView3" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <StackLayout
+                Margin="12,-2,0,0"
+                HeightRequest="2"
+                Orientation="Horizontal">
+                <BoxView
+                    BackgroundColor="DodgerBlue"
+                    HeightRequest="2"
+                    IsVisible="{Binding Source={x:Reference View1}, Path=IsVisible}"
+                    WidthRequest="84" />
+                <BoxView
+                    Margin="90,0,0,0"
+                    BackgroundColor="DodgerBlue"
+                    HeightRequest="2"
+                    IsVisible="{Binding Source={x:Reference View2}, Path=IsVisible}"
+                    WidthRequest="84" />
+                <BoxView
+                    Margin="180,0,0,0"
+                    BackgroundColor="DodgerBlue"
+                    HeightRequest="2"
+                    IsVisible="{Binding Source={x:Reference View3}, Path=IsVisible}"
+                    WidthRequest="84" />
+            </StackLayout>
+            <StackLayout
+                x:Name="View1"
+                BackgroundColor="#DCDCDC"
+                HeightRequest="400">
+                <Label Margin="24" Text="This is View1" />
+            </StackLayout>
+            <StackLayout
+                x:Name="View2"
+                BackgroundColor="#DCDCDC"
+                HeightRequest="400"
+                IsVisible="False">
+                <Label Margin="24" Text="This is View2" />
+            </StackLayout>
+            <StackLayout
+                x:Name="View3"
+                BackgroundColor="#DCDCDC"
+                HeightRequest="400"
+                IsVisible="False">
+                <Label Margin="24" Text="This is View3" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
