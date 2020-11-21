@@ -13,25 +13,29 @@
                 HorizontalOptions="Center"
                 Text="FakeTabs = Label + Boxview" />
 
-            <StackLayout
+            <Grid
                 Padding="12,0,16,0"
                 BackgroundColor="#050505"
-                HeightRequest="40"
-                Orientation="Horizontal">
-                <StackLayout.Resources>
+                ColumnDefinitions="84, 84, 84, *"
+                HeightRequest="40">
+                <Grid.Resources>
                     <ResourceDictionary>
                         <Style TargetType="Label">
                             <Setter Property="FontSize" Value="15" />
                             <Setter Property="HorizontalOptions" Value="Center" />
                             <Setter Property="HorizontalTextAlignment" Value="Center" />
-                            <Setter Property="Padding" Value="4,10" />
                             <Setter Property="VerticalOptions" Value="Center" />
-                            <Setter Property="WidthRequest" Value="84" />
+                        </Style>
+                        <Style TargetType="BoxView">
+                            <Setter Property="BackgroundColor" Value="DodgerBlue" />
+                            <Setter Property="HeightRequest" Value="2" />
+                            <Setter Property="VerticalOptions" Value="End" />
                         </Style>
                     </ResourceDictionary>
-                </StackLayout.Resources>
+                </Grid.Resources>
                 <Label
                     x:Name="LabelView1"
+                    Grid.Column="0"
                     Text="Tab1"
                     TextColor="LightGray">
                     <Label.Triggers>
@@ -49,6 +53,7 @@
                 </Label>
                 <Label
                     x:Name="LabelView2"
+                    Grid.Column="1"
                     Text="Tab2"
                     TextColor="LightGray">
                     <Label.Triggers>
@@ -66,6 +71,7 @@
                 </Label>
                 <Label
                     x:Name="LabelView3"
+                    Grid.Column="2"
                     Text="Tab3"
                     TextColor="LightGray">
                     <Label.Triggers>
@@ -81,29 +87,11 @@
                         <TapGestureRecognizer Tapped="TapToView3" />
                     </Label.GestureRecognizers>
                 </Label>
-            </StackLayout>
-            <StackLayout
-                Margin="12,-2,0,0"
-                HeightRequest="2"
-                Orientation="Horizontal">
-                <BoxView
-                    BackgroundColor="DodgerBlue"
-                    HeightRequest="2"
-                    IsVisible="{Binding Source={x:Reference View1}, Path=IsVisible}"
-                    WidthRequest="84" />
-                <BoxView
-                    Margin="90,0,0,0"
-                    BackgroundColor="DodgerBlue"
-                    HeightRequest="2"
-                    IsVisible="{Binding Source={x:Reference View2}, Path=IsVisible}"
-                    WidthRequest="84" />
-                <BoxView
-                    Margin="180,0,0,0"
-                    BackgroundColor="DodgerBlue"
-                    HeightRequest="2"
-                    IsVisible="{Binding Source={x:Reference View3}, Path=IsVisible}"
-                    WidthRequest="84" />
-            </StackLayout>
+                <Label Grid.Column="3" />
+                <BoxView Grid.Column="0" IsVisible="{Binding Source={x:Reference View1}, Path=IsVisible}" />
+                <BoxView Grid.Column="1" IsVisible="{Binding Source={x:Reference View2}, Path=IsVisible}" />
+                <BoxView Grid.Column="2" IsVisible="{Binding Source={x:Reference View3}, Path=IsVisible}" />
+            </Grid>
             <StackLayout
                 x:Name="View1"
                 BackgroundColor="#DCDCDC"
