@@ -6,18 +6,21 @@
     Title="Fake Tabs">
     <ContentPage.Content>
         <StackLayout Margin="40" Spacing="0">
-
             <Label
                 Margin="24,0,24,48"
                 FontSize="20"
                 HorizontalOptions="Center"
-                Text="FakeTabs = Label + Boxview" />
-
+                Text="FakeTabs = Label + BoxView + Animation" />
             <Grid
                 Padding="12,0,16,0"
                 BackgroundColor="#050505"
-                ColumnDefinitions="84, 84, 84, *"
                 HeightRequest="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="84" />
+                    <ColumnDefinition Width="84" />
+                    <ColumnDefinition Width="84" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
                 <Grid.Resources>
                     <ResourceDictionary>
                         <Style TargetType="Label">
@@ -88,9 +91,7 @@
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Grid.Column="3" />
-                <BoxView Grid.Column="0" IsVisible="{Binding Source={x:Reference View1}, Path=IsVisible}" />
-                <BoxView Grid.Column="1" IsVisible="{Binding Source={x:Reference View2}, Path=IsVisible}" />
-                <BoxView Grid.Column="2" IsVisible="{Binding Source={x:Reference View3}, Path=IsVisible}" />
+                <BoxView x:Name="SelectedHighlight" Grid.Column="0" />
             </Grid>
             <StackLayout
                 x:Name="View1"

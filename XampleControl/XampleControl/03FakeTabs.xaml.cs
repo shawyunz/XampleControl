@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,23 +12,6 @@ namespace XampleControl
 		{
 			InitializeComponent();
 		}
-		private void TapToView1(object sender, EventArgs e)
-		{
-			ResetViews();
-			View1.IsVisible = true;
-		}
-
-		private void TapToView2(object sender, EventArgs e)
-		{
-			ResetViews();
-			View2.IsVisible = true;
-		}
-
-		private void TapToView3(object sender, EventArgs e)
-		{
-			ResetViews();
-			View3.IsVisible = true;
-		}
 
 		private void ResetViews()
 		{
@@ -41,5 +20,25 @@ namespace XampleControl
 			View3.IsVisible = false;
 		}
 
+		private void TapToView1(object sender, EventArgs e)
+		{
+			ResetViews();
+			View1.IsVisible = true;
+			SelectedHighlight.TranslateTo(0, 0, 150, easing: Easing.SinInOut);
+		}
+
+		private void TapToView2(object sender, EventArgs e)
+		{
+			ResetViews();
+			View2.IsVisible = true;
+			SelectedHighlight.TranslateTo(90, 0, 150, easing: Easing.SinInOut);
+		}
+
+		private void TapToView3(object sender, EventArgs e)
+		{
+			ResetViews();
+			View3.IsVisible = true;
+			SelectedHighlight.TranslateTo(180, 0, 150, easing: Easing.SinInOut);
+		}
 	}
 }
