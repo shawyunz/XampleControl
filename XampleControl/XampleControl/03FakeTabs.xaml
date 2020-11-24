@@ -25,9 +25,10 @@
                     <ResourceDictionary>
                         <Style TargetType="Label">
                             <Setter Property="FontSize" Value="15" />
-                            <Setter Property="HorizontalOptions" Value="Center" />
+                            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                             <Setter Property="HorizontalTextAlignment" Value="Center" />
-                            <Setter Property="VerticalOptions" Value="Center" />
+                            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                            <Setter Property="VerticalTextAlignment" Value="Center" />
                         </Style>
                         <Style TargetType="BoxView">
                             <Setter Property="BackgroundColor" Value="DodgerBlue" />
