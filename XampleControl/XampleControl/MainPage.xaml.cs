@@ -24,5 +24,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _03FakeTabs());
 		}
+
+		private async void Button_Clicked04(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _04BottomDrawer());
+		}
 	}
 }

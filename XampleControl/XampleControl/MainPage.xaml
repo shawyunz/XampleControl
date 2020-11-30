@@ -4,20 +4,21 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <StackLayout>
-        <Frame
+    <StackLayout Spacing="2">
+
+        <Label
             Padding="24"
             BackgroundColor="#2196F3"
-            CornerRadius="0">
-            <Label
-                FontSize="36"
-                HorizontalTextAlignment="Center"
-                Text="Welcome to Xample.Control!"
-                TextColor="White" />
-        </Frame>
+            FontSize="36"
+            HeightRequest="200"
+            HorizontalTextAlignment="Center"
+            Text="Welcome to Xample.Control!"
+            TextColor="White" />
+
         <Button Clicked="Button_Clicked01" Text="01 AnimatedCounter" />
         <Button Clicked="Button_Clicked02" Text="02 FloatingActionButton" />
         <Button Clicked="Button_Clicked03" Text="03 Fake Tabs" />
+        <Button Clicked="Button_Clicked04" Text="04 Bottom Drawer" />
     </StackLayout>
 
 </ContentPage>

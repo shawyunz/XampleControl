@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._04BottomDrawer"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Bottom Drawer">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2196F3">
+            <StackLayout Margin="40">
+                <Button Clicked="Button_Clicked01" Text="Left Drawer" />
+                <Button Clicked="Button_Clicked02" Text="Right Drawer" />
+                <Button Clicked="Button_Clicked03" Text="Bottom Drawer" />
+                <Button Clicked="Button_Clicked04" Text="Reset" />
+            </StackLayout>
+            <Frame
+                x:Name="BottomDrawer"
+                Padding="0"
+                CornerRadius="20"
+                HeightRequest="200"
+                TranslationY="170"
+                VerticalOptions="End">
+                <Frame.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Up" Swiped="SwipeGestureRecognizer_Swiped01" />
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="0">
+                    <BoxView
+                        Margin="0,8"
+                        BackgroundColor="LightGray"
+                        CornerRadius="2"
+                        HeightRequest="4"
+                        HorizontalOptions="Center"
+                        WidthRequest="40" />
+                </StackLayout>
+            </Frame>
+            <Frame
+                x:Name="LeftDrawer"
+                Padding="0"
+                BackgroundColor="#ffca00"
+                CornerRadius="20"
+                HorizontalOptions="Start"
+                TranslationX="-170"
+                WidthRequest="200">
+                <Frame.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped02" />
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="0" VerticalOptions="FillAndExpand">
+                    <BoxView
+                        Margin="8,0"
+                        BackgroundColor="#7ed320"
+                        CornerRadius="2"
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="4" />
+                </StackLayout>
+            </Frame>
+            <Frame
+                x:Name="RightDrawer"
+                Padding="0"
+                BackgroundColor="#7ed320"
+                CornerRadius="20"
+                HorizontalOptions="End"
+                TranslationX="170"
+                WidthRequest="200">
+                <Frame.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped03" />
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="0">
+                    <BoxView
+                        Margin="8,0"
+                        BackgroundColor="#ffca00"
+                        CornerRadius="2"
+                        HeightRequest="40"
+                        HorizontalOptions="Start"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="4" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
