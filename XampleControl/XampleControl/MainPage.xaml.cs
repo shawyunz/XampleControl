@@ -29,5 +29,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _04BottomDrawer());
 		}
+
+		private async void Button_Clicked05(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _05FlipCard());
+		}
 	}
 }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._05FlipCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout Margin="40" Spacing="0">
+            <Label
+                Margin="24,0,24,48"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Scroll to Flip the card" />
+            <StackLayout BackgroundColor="Gray">
+                <Image />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
