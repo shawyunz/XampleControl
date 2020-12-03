@@ -2,16 +2,50 @@
 <ContentPage
     x:Class="XampleControl._05FlipCard"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Flip Card">
     <ContentPage.Content>
-        <StackLayout Margin="40" Spacing="0">
+        <StackLayout Spacing="0">
             <Label
-                Margin="24,0,24,48"
+                Margin="24,24,24,48"
                 FontSize="20"
                 HorizontalOptions="Center"
                 Text="Scroll to Flip the card" />
-            <StackLayout BackgroundColor="Gray">
-                <Image />
+
+            <StackLayout Padding="0,48" BackgroundColor="Green">
+                <StackLayout.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                </StackLayout.GestureRecognizers>
+                <StackLayout.Resources>
+                    <Style TargetType="Frame">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="BorderColor" Value="Gray" />
+                        <Setter Property="CornerRadius" Value="12" />
+                        <Setter Property="HasShadow" Value="False" />
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                        <Setter Property="WidthRequest" Value="240" />
+                    </Style>
+                </StackLayout.Resources>
+                <Frame x:Name="Card1View" IsVisible="{Binding IsFront}">
+                    <Image Aspect="AspectFit" Source="card1.png" />
+                </Frame>
+                <Frame x:Name="Card2View" IsVisible="{Binding IsBack}">
+                    <Image Aspect="AspectFit" Source="card2.png" />
+                </Frame>
+            </StackLayout>
+
+
+            <StackLayout
+                Margin="48"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="300">
+                <Label x:Name="LabelStatus" />
+                <Label x:Name="LabelX" />
+                <Label x:Name="LabelY" />
+                <Button
+                    Clicked="Button_Clicked2"
+                    Text="Flip"
+                    VerticalOptions="CenterAndExpand" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
