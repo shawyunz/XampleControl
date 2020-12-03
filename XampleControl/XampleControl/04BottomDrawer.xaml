@@ -6,12 +6,20 @@
     Title="Bottom Drawer">
     <ContentPage.Content>
         <Grid BackgroundColor="#2196F3">
-            <StackLayout Margin="40">
+            <Label
+                Margin="24,24,24,48"
+                FontSize="20"
+                HorizontalOptions="Center"
+                InputTransparent="True"
+                Text="Pull to Open"
+                TextColor="White" />
+            <StackLayout Margin="40,80">
                 <Button Clicked="Button_Clicked01" Text="Left Drawer" />
                 <Button Clicked="Button_Clicked02" Text="Right Drawer" />
                 <Button Clicked="Button_Clicked03" Text="Bottom Drawer" />
                 <Button Clicked="Button_Clicked04" Text="Reset" />
             </StackLayout>
+
             <Frame
                 x:Name="BottomDrawer"
                 Padding="0"
