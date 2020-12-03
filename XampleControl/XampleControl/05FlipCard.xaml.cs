@@ -13,6 +13,8 @@ namespace XampleControl
 		private bool isFliping = false;
 
 		private bool isFront = true;
+		private bool isBack;
+		private bool startFromFront;
 
 		public _05FlipCard()
 		{
@@ -20,12 +22,20 @@ namespace XampleControl
 			BindingContext = this;
 		}
 
-		public bool IsBack => !IsFront;
+		public bool IsBack
+		{
+			get { return isBack; }
+			set { SetProperty(ref isBack, value); }
+		}
 
 		public bool IsFront
 		{
 			get { return isFront; }
-			set { SetProperty(ref isFront, value); OnPropertyChanged(nameof(IsBack)); }
+			set
+			{
+				SetProperty(ref isFront, value);
+				LabelX.Text = "Front: " + (isFront ? "Yes" : "No");
+			}
 		}
 
 		protected bool SetProperty<T>(ref T backingStore, T value,
@@ -62,47 +72,60 @@ namespace XampleControl
 
 			isFliping = true;
 			view2.RotationX = -270;
-			await view1.RotateXTo(-90, 2000, Easing.CubicIn);
+			await view1.RotateXTo(-90, 1000, Easing.CubicIn);
 			view1.IsVisible = false;
 			view2.IsVisible = true;
-			await view2.RotateXTo(-360, 2000, Easing.CubicOut);
+			await view2.RotateXTo(-360, 1000, Easing.CubicOut);
 			view2.RotationX = 0;
 
 			IsFront = !IsFront;
+			IsBack = !IsBack;
 			isFliping = false;
 		}
 
-		private async void FlipCardByDragging(View view1, View view2, double distance)
+		private void FlipCardByDragging(View view1, View view2, double distance)
 		{
 			double rotation = distance * -2;
-
 			int angle = Math.Abs(((int)Math.Round(rotation)) % 360);
+
+			LabelAngle.Text = "Flip Angle: " + angle;
+
 			if (angle <= 90 || angle > 270)
 			{
-				IsFront = true;
-				await view1.RotateXTo(rotation, 1, Easing.Linear);
+				if (IsBack)
+				{
+					IsFront = true;
+					IsBack = false;
+				}
+				view1.RotationX = rotation;
 			}
 			else
 			{
-				IsFront = false;
-				await view2.RotateXTo(rotation, 1, Easing.Linear);
+				if (IsFront)
+				{
+					IsFront = false;
+					IsBack = true;
+				}
+				view2.RotationX = rotation - 180;
 			}
 		}
 
 		private void PanGestureRecognizer_PanUpdated(object sender, PanUpdatedEventArgs e)
 		{
 			var offset = e.TotalY;
-			LabelStatus.Text = e.StatusType.ToString();
-			LabelX.Text = "X distance: " + Math.Round(e.TotalX, 1);
-			LabelY.Text = "Y distance: " + Math.Round(offset, 1);
+			LabelStatus.Text = "Status: " + e.StatusType.ToString();
+			LabelY.Text = "Movement: " + Math.Round(offset, 1);
 
 			if (e.StatusType.ToString() == "Started" || e.StatusType.ToString() == "Completed")
 			{
+				startFromFront = IsFront;
 				Card2View.RotationX = IsFront ? -270 : 0;
 				Card1View.RotationX = !IsFront ? -270 : 0;
+				OnPropertyChanged(nameof(IsFront));
+				OnPropertyChanged(nameof(IsBack));
 			}
 
-			if (IsFront)
+			if (startFromFront)
 			{
 				FlipCardByDragging(Card1View, Card2View, offset);
 			}

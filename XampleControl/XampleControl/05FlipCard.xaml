@@ -10,9 +10,12 @@
                 Margin="24,24,24,48"
                 FontSize="20"
                 HorizontalOptions="Center"
-                Text="Scroll to Flip the card" />
+                Text="Drag to Flip the card" />
 
-            <StackLayout Padding="0,48" BackgroundColor="Green">
+            <StackLayout
+                Padding="0,48"
+                BackgroundColor="#EEEEEE"
+                HeightRequest="200">
                 <StackLayout.GestureRecognizers>
                     <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
                 </StackLayout.GestureRecognizers>
@@ -39,9 +42,10 @@
                 Margin="48"
                 HorizontalOptions="CenterAndExpand"
                 WidthRequest="300">
-                <Label x:Name="LabelStatus" />
-                <Label x:Name="LabelX" />
-                <Label x:Name="LabelY" />
+                <Label x:Name="LabelStatus" Text="Status:" />
+                <Label x:Name="LabelX" Text="Front:" />
+                <Label x:Name="LabelY" Text="Movement:" />
+                <Label x:Name="LabelAngle" Text="Flip Angle:" />
                 <Button
                     Clicked="Button_Clicked2"
                     Text="Flip"
