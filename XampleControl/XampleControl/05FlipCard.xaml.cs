@@ -10,10 +10,10 @@ namespace XampleControl
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class _05FlipCard : ContentPage, INotifyPropertyChanged
 	{
+		private bool isBack;
 		private bool isFliping = false;
 
 		private bool isFront = true;
-		private bool isBack;
 		private bool startFromFront;
 
 		public _05FlipCard()
@@ -38,32 +38,19 @@ namespace XampleControl
 			}
 		}
 
-		protected bool SetProperty<T>(ref T backingStore, T value,
-			[CallerMemberName] string propertyName = "",
-			Action onChanged = null)
-		{
-			if (EqualityComparer<T>.Default.Equals(backingStore, value))
-				return false;
-
-			backingStore = value;
-			onChanged?.Invoke();
-			OnPropertyChanged(propertyName);
-			return true;
-		}
-
-		private void Button_Clicked2(object sender, EventArgs e)
+		private void Button_Clicked(object sender, EventArgs e)
 		{
 			if (IsFront)
 			{
-				FlipCard(Card1View, Card2View);
+				FlipAnimation(Card1View, Card2View);
 			}
 			else
 			{
-				FlipCard(Card2View, Card1View);
+				FlipAnimation(Card2View, Card1View);
 			}
 		}
 
-		private async void FlipCard(View view1, View view2)
+		private async void FlipAnimation(View view1, View view2)
 		{
 			if (isFliping)
 			{
@@ -78,34 +65,24 @@ namespace XampleControl
 			await view2.RotateXTo(-360, 1000, Easing.CubicOut);
 			view2.RotationX = 0;
 
-			IsFront = !IsFront;
-			IsBack = !IsBack;
 			isFliping = false;
 		}
 
-		private void FlipCardByDragging(View view1, View view2, double distance)
+		private void FlipCardByDragging(View view1, View view2, double rotation)
 		{
-			double rotation = distance * -2;
 			int angle = Math.Abs(((int)Math.Round(rotation)) % 360);
-
 			LabelAngle.Text = "Flip Angle: " + angle;
 
 			if (angle <= 90 || angle > 270)
 			{
-				if (IsBack)
-				{
-					IsFront = true;
-					IsBack = false;
-				}
+				view1.IsVisible = true;
+				view2.IsVisible = false;
 				view1.RotationX = rotation;
 			}
 			else
 			{
-				if (IsFront)
-				{
-					IsFront = false;
-					IsBack = true;
-				}
+				view2.IsVisible = true;
+				view1.IsVisible = false;
 				view2.RotationX = rotation - 180;
 			}
 		}
@@ -121,26 +98,25 @@ namespace XampleControl
 				startFromFront = IsFront;
 				Card2View.RotationX = IsFront ? -270 : 0;
 				Card1View.RotationX = !IsFront ? -270 : 0;
-				OnPropertyChanged(nameof(IsFront));
-				OnPropertyChanged(nameof(IsBack));
 			}
 
 			if (startFromFront)
 			{
-				FlipCardByDragging(Card1View, Card2View, offset);
+				FlipCardByDragging(Card1View, Card2View, offset * -2);
 			}
 			else
 			{
-				FlipCardByDragging(Card2View, Card1View, offset);
+				FlipCardByDragging(Card2View, Card1View, offset * -2);
 			}
 		}
 
 		#region INotifyPropertyChanged
 
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
 		public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
-
 		protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
 #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
 		{
@@ -151,6 +127,19 @@ namespace XampleControl
 			changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		#endregion INotifyPropertyChanged
+		protected bool SetProperty<T>(ref T backingStore, T value,
+					[CallerMemberName] string propertyName = "",
+			Action onChanged = null)
+		{
+			if (EqualityComparer<T>.Default.Equals(backingStore, value))
+				return false;
+
+			backingStore = value;
+			onChanged?.Invoke();
+			OnPropertyChanged(propertyName);
+			return true;
+		}
+
+		#endregion
 	}
 }

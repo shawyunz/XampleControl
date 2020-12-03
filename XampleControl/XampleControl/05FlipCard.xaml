@@ -29,14 +29,13 @@
                         <Setter Property="WidthRequest" Value="240" />
                     </Style>
                 </StackLayout.Resources>
-                <Frame x:Name="Card1View" IsVisible="{Binding IsFront}">
+                <Frame x:Name="Card1View" IsVisible="{Binding IsFront, Mode=TwoWay}">
                     <Image Aspect="AspectFit" Source="card1.png" />
                 </Frame>
-                <Frame x:Name="Card2View" IsVisible="{Binding IsBack}">
+                <Frame x:Name="Card2View" IsVisible="{Binding IsBack, Mode=TwoWay}">
                     <Image Aspect="AspectFit" Source="card2.png" />
                 </Frame>
             </StackLayout>
-
 
             <StackLayout
                 Margin="48"
@@ -47,7 +46,7 @@
                 <Label x:Name="LabelY" Text="Movement:" />
                 <Label x:Name="LabelAngle" Text="Flip Angle:" />
                 <Button
-                    Clicked="Button_Clicked2"
+                    Clicked="Button_Clicked"
                     Text="Flip"
                     VerticalOptions="CenterAndExpand" />
             </StackLayout>
