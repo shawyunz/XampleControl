@@ -34,5 +34,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _05FlipCard());
 		}
+
+		private async void Button_Clicked06(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _06CarouselGrouping());
+		}
 	}
 }

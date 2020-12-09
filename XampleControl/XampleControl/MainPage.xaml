@@ -20,6 +20,7 @@
         <Button Clicked="Button_Clicked03" Text="03 Fake Tabs" />
         <Button Clicked="Button_Clicked04" Text="04 Bottom Drawer" />
         <Button Clicked="Button_Clicked05" Text="05 Flip Card" />
+        <Button Clicked="Button_Clicked06" Text="06 Grouping Carousel" />
     </StackLayout>
 
 </ContentPage>

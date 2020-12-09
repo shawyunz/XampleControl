@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._06CarouselGrouping"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="Group" />
+                <Entry Placeholder="Text" />
+                <Button />
+            </StackLayout>
+
+            <CarouselView ItemsSource="{Binding MockGrouping}">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label HorizontalOptions="Center" Text="{Binding ColorCategory}" />
+                            <CollectionView ItemsSource="{Binding ColorList}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <BoxView
+                                            Margin="10"
+                                            BackgroundColor="{Binding Code}"
+                                            HeightRequest="20" />
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
