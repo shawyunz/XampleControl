@@ -2,34 +2,57 @@
 <ContentPage
     x:Class="XampleControl._06CarouselGrouping"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="From List to Carousel">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Group" />
-                <Entry Placeholder="Text" />
-                <Button />
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Entry
+                    x:Name="TxtGroup"
+                    Placeholder="Group"
+                    WidthRequest="100" />
+                <Entry
+                    x:Name="TxtCode"
+                    Placeholder="Text"
+                    WidthRequest="100" />
+                <Button Clicked="Button_Clicked" Text="Add" />
             </StackLayout>
 
-            <CarouselView ItemsSource="{Binding MockGrouping}">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Label HorizontalOptions="Center" Text="{Binding ColorCategory}" />
-                            <CollectionView ItemsSource="{Binding ColorList}">
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <BoxView
-                                            Margin="10"
-                                            BackgroundColor="{Binding Code}"
-                                            HeightRequest="20" />
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </StackLayout>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+            <StackLayout Orientation="Horizontal">
+                <CollectionView
+                    Margin="12,0"
+                    ItemsSource="{Binding MockColorList}"
+                    WidthRequest="100">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,4" Spacing="0">
+                                <Label Text="{Binding Type}" />
+                                <Label Text="{Binding Code}" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <CarouselView ItemsSource="{Binding MockColorGrouping}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label HorizontalOptions="Center" Text="{Binding ColorCategory}" />
+                                <CollectionView ItemsSource="{Binding ColorList}">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <BoxView
+                                                Margin="10"
+                                                BackgroundColor="{Binding Code}"
+                                                HeightRequest="20" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
