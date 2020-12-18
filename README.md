@@ -1,6 +1,6 @@
 # XampleControl
 
-A collection of Xamarin customized widgets (hopefully, without NuGet pkgs).
+A collection of Xamarin fake controls (hopefully, without NuGet pkgs or custom renderer).
 
 
 
