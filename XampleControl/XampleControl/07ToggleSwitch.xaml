@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._07ToggleSwitch"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#2196F3">
+            <Label
+                Margin="24,24,24,48"
+                FontSize="20"
+                HorizontalOptions="Center"
+                InputTransparent="True"
+                Text="Click to Toggle"
+                TextColor="White" />
+            <StackLayout Margin="40,80">
+                <!--<Button Clicked="Button_Clicked01" Text="Left Drawer" />
+                <Button Clicked="Button_Clicked02" Text="Right Drawer" />
+                <Button Clicked="Button_Clicked03" Text="Bottom Drawer" />
+                <Button Clicked="Button_Clicked04" Text="Reset" />-->
+            </StackLayout>
+
+            <Frame
+                Margin="0,40"
+                Padding="0"
+                BackgroundColor="GreenYellow"
+                CornerRadius="20"
+                HeightRequest="40"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="100">
+
+                <Grid>
+                    <Label
+                        FontSize="10"
+                        HorizontalOptions="Start"
+                        Text="Yes" />
+                    <Label
+                        FontSize="10"
+                        HorizontalOptions="End"
+                        Text="No" />
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
