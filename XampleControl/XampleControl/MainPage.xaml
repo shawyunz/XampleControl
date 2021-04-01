@@ -21,6 +21,7 @@
         <Button Clicked="Button_Clicked04" Text="04 Bottom Drawer" />
         <Button Clicked="Button_Clicked05" Text="05 Flip Card" />
         <Button Clicked="Button_Clicked06" Text="06 Grouping Carousel" />
+        <Button Clicked="Button_Clicked07" Text="07 Toggle Switch" />
     </StackLayout>
 
 </ContentPage>

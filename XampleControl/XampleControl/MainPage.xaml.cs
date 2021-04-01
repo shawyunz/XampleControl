@@ -39,5 +39,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _06CarouselGrouping());
 		}
+
+		private async void Button_Clicked07(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _07ToggleSwitch());
+		}
 	}
 }
