@@ -15,13 +15,13 @@
             Text="Welcome to Xample.Control!"
             TextColor="White" />
 
-        <Button Clicked="Button_Clicked01" Text="01 AnimatedCounter" />
-        <Button Clicked="Button_Clicked02" Text="02 FloatingActionButton" />
+        <Button Clicked="Button_Clicked01" Text="01 Animated Counter" />
+        <Button Clicked="Button_Clicked02" Text="02 Fake Fab" />
         <Button Clicked="Button_Clicked03" Text="03 Fake Tabs" />
-        <Button Clicked="Button_Clicked04" Text="04 Bottom Drawer" />
+        <Button Clicked="Button_Clicked04" Text="04 Side Drawers" />
         <Button Clicked="Button_Clicked05" Text="05 Flip Card" />
         <Button Clicked="Button_Clicked06" Text="06 Grouping Carousel" />
-        <Button Clicked="Button_Clicked07" Text="07 Toggle Switch" />
+        <Button Clicked="Button_Clicked07" Text="07 Fake Switch" />
     </StackLayout>
 
 </ContentPage>
