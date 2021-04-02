@@ -5,25 +5,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Fake Toggle Switch with text">
     <ContentPage.Content>
-        <Grid BackgroundColor="#2196F3">
+        <Grid BackgroundColor="White">
+
+            <Ellipse
+                x:Name="EllipsBackground"
+                Margin="4,0"
+                Fill="#43c6ac"
+                HeightRequest="32"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="32" />
             <Label
                 Margin="24,24,24,48"
                 FontSize="20"
                 HorizontalOptions="Center"
                 InputTransparent="True"
-                Text="Label Toggle Switch = Frame + Ellipse + Animation"
-                TextColor="White" />
-            <StackLayout Margin="40,80">
-                <!--<Button Clicked="Button_Clicked01" Text="Left Drawer" />
-                <Button Clicked="Button_Clicked02" Text="Right Drawer" />
-                <Button Clicked="Button_Clicked03" Text="Bottom Drawer" />
-                <Button Clicked="Button_Clicked04" Text="Reset" />-->
-            </StackLayout>
-
+                Text="Label Toggle Switch = Frame + Ellipse + Animation" />
             <Frame
                 Margin="0,40"
                 Padding="0"
-                BackgroundColor="GreenYellow"
+                BackgroundColor="#bccad4"
                 CornerRadius="20"
                 HeightRequest="40"
                 HorizontalOptions="Center"
@@ -36,11 +37,10 @@
                     <DataTrigger
                         Binding="{Binding IsSelected}"
                         TargetType="Frame"
-                        Value="False">
-                        <Setter Property="BackgroundColor" Value="LightGray" />
+                        Value="True">
+                        <Setter Property="BackgroundColor" Value="#43c6ac" />
                     </DataTrigger>
                 </Frame.Triggers>
-
                 <Grid>
                     <Ellipse
                         x:Name="SwitchEllips"
@@ -48,28 +48,14 @@
                         Fill="White"
                         HeightRequest="32"
                         HorizontalOptions="Start"
+                        Stroke="LightGray"
+                        StrokeThickness="0.5"
                         VerticalOptions="Center"
                         WidthRequest="32" />
                     <Label
                         x:Name="SwitchOnText"
-                        Margin="12,0,0,0"
+                        Margin="10,0,0,0"
                         HorizontalOptions="Start"
-                        Text="On"
-                        VerticalOptions="CenterAndExpand">
-                        <Label.Triggers>
-                            <DataTrigger
-                                Binding="{Binding IsSelected}"
-                                TargetType="Label"
-                                Value="True">
-                                <Setter Property="TextColor" Value="DodgerBlue" />
-                                <Setter Property="FontAttributes" Value="Bold" />
-                            </DataTrigger>
-                        </Label.Triggers>
-                    </Label>
-                    <Label
-                        x:Name="SwitchOffText"
-                        Margin="0,0,10,0"
-                        HorizontalOptions="End"
                         Text="Off"
                         VerticalOptions="CenterAndExpand">
                         <Label.Triggers>
@@ -77,6 +63,22 @@
                                 Binding="{Binding IsSelected}"
                                 TargetType="Label"
                                 Value="False">
+                                <Setter Property="TextColor" Value="DodgerBlue" />
+                                <Setter Property="FontAttributes" Value="Bold" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                    <Label
+                        x:Name="SwitchOffText"
+                        Margin="0,0,12,0"
+                        HorizontalOptions="End"
+                        Text="On"
+                        VerticalOptions="CenterAndExpand">
+                        <Label.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsSelected}"
+                                TargetType="Label"
+                                Value="True">
                                 <Setter Property="TextColor" Value="DodgerBlue" />
                                 <Setter Property="FontAttributes" Value="Bold" />
                             </DataTrigger>
