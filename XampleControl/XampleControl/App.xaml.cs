@@ -1,6 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace XampleControl
 {
@@ -13,7 +11,7 @@ namespace XampleControl
 			MainPage = new NavigationPage(new MainPage());
 		}
 
-		protected override void OnStart()
+		protected override void OnResume()
 		{
 		}
 
@@ -21,7 +19,7 @@ namespace XampleControl
 		{
 		}
 
-		protected override void OnResume()
+		protected override void OnStart()
 		{
 		}
 	}
