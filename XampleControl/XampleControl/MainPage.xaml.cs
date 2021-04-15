@@ -44,5 +44,10 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _07ToggleSwitch());
 		}
+
+		private async void Button_Clicked08(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _08CutoutTextbox());
+		}
 	}
 }

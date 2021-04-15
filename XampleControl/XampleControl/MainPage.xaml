@@ -2,18 +2,19 @@
 <ContentPage
     x:Class="XampleControl.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
 
     <StackLayout Spacing="2">
 
         <Label
-            Padding="24"
             BackgroundColor="#2196F3"
             FontSize="36"
-            HeightRequest="200"
+            HeightRequest="180"
             HorizontalTextAlignment="Center"
-            Text="Welcome to Xample.Control!"
-            TextColor="White" />
+            Text="Welcome to Xample.Control"
+            TextColor="White"
+            VerticalTextAlignment="Center" />
 
         <Button Clicked="Button_Clicked01" Text="01 Animated Counter" />
         <Button Clicked="Button_Clicked02" Text="02 Fake Fab" />
@@ -22,6 +23,7 @@
         <Button Clicked="Button_Clicked05" Text="05 Flip Card" />
         <Button Clicked="Button_Clicked06" Text="06 Grouping Carousel" />
         <Button Clicked="Button_Clicked07" Text="07 Fake Switch" />
+        <Button Clicked="Button_Clicked08" Text="08 Cutout Textbox" />
     </StackLayout>
 
 </ContentPage>
