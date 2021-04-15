@@ -55,7 +55,25 @@ A collection of Xamarin fake controls (hopefully, without NuGet pkgs or custom r
 
 
 
-## To be continued
+
+## 07 Toggle Switch
+
+| <img src="Screenshots/07 Toggle Switch.gif" alt="demo07" width="300"> |
+| :----------------------------------------------------------: |
+|                   **Figure 7** _Toggle Switch_                   |
+
+
+
+
+## 08 Cut-out Textbox
+
+| <img src="Screenshots/08 Cut-out Textbox.gif" alt="demo08" width="300"> |
+| :----------------------------------------------------------: |
+|                   **Figure 8** _Cut-out Textbox_                   |
+
+
+
+#### To be continued
 
 
 
