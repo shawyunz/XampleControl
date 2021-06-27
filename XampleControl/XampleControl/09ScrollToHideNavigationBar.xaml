@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XampleControl._09ScrollToHideNavigationBar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout
+                x:Name="TitleLayout"
+                BackgroundColor="#2296f3"
+                HeightRequest="72"
+                Orientation="Horizontal">
+                <Label
+                    Margin="40,0,0,0"
+                    FontSize="20"
+                    Text="Title"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <ScrollView Scrolled="ScrollView_Scrolled">
+                <StackLayout HeightRequest="1000">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Top label text"
+                        VerticalOptions="Start" />
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Scroll to Hide the title!"
+                        VerticalOptions="CenterAndExpand" />
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Bottom Label"
+                        VerticalOptions="End" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

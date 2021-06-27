@@ -24,6 +24,7 @@
         <Button Clicked="Button_Clicked06" Text="06 Grouping Carousel" />
         <Button Clicked="Button_Clicked07" Text="07 Fake Switch" />
         <Button Clicked="Button_Clicked08" Text="08 Cutout Textbox" />
+        <Button Clicked="Button_Clicked09" Text="09 Auto Collapse Nav Bar" />
     </StackLayout>
 
 </ContentPage>

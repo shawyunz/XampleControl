@@ -49,5 +49,9 @@ namespace XampleControl
 		{
 			await Navigation.PushAsync(new _08CutoutTextbox());
 		}
+		private async void Button_Clicked09(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new _09ScrollToHideNavigationBar());
+		}
 	}
 }
